@@ -21,7 +21,7 @@ class TeamListViewController: UIViewController {
         self.view.backgroundColor = UIColor(named: "theme")
         self.view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            self.view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: tableView.topAnchor, constant: -10),
+            self.view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: tableView.topAnchor, constant: -60),
             self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: tableView.bottomAnchor),
             self.view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
             self.view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
@@ -30,13 +30,33 @@ class TeamListViewController: UIViewController {
         self.tableView = tableView
     }
     
+    lazy var searchBar:UISearchBar = UISearchBar()
+    var searchActive : Bool = false
+    var filtered:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupTableView()
         initViewModel()
         self.navigationItem.title = "World Cup 2018"
-
+        setUpSearchBar()
+    }
+    
+    private func setUpSearchBar() {
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 60))
+        searchBar.searchBarStyle = UISearchBar.Style.prominent
+        searchBar.placeholder = " Search..."
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        searchBar.tintColor = .white
+        searchBar.barTintColor = UIColor(named: "theme")
+        searchBar.searchTextField.textColor = .white
+        searchBar.showsCancelButton = true
+        
+        self.view.addSubview(searchBar)
     }
     
     private func initViewModel() {
@@ -112,4 +132,17 @@ extension TeamListViewController: UITableViewDelegate {
     }
 }
 
+extension TeamListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let shipName = searchBar.text else { return }
+        teamViewModel.getSearchTeam(searchTerm: shipName)
+    }
+        
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        teamViewModel.cancelSearch()
+        tableView.reloadData()
+    }
+}
 

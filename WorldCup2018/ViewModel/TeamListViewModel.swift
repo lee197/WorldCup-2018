@@ -18,7 +18,10 @@ class TeamListViewModel {
     var reloadTableViewClosure: (()->())?
     var showAlertClosure: (()->())?
     var groups: [Group] = []
-    
+    var searchedGroups: [Group] = []
+    var isSearching = false
+    var searchedTeam: [[Team]]?
+
     var alertMessage: String? {
         didSet {
             showAlertClosure?()
@@ -50,6 +53,49 @@ class TeamListViewModel {
         }
     }
     
+    func getSearchTeam(searchTerm: String) {
+        isSearching = true
+
+        searchedGroups = groups.filter{$0.sortedTeams.map{$0.name}.contains(searchTerm)}
+        searchedTeam = groups.map{$0.sortedTeams.filter{$0.name == searchTerm}}.filter{$0.count != 0}
+        createCellModels(sortedTeams: searchedTeam!)
+    }
+    
+    func cancelSearch() {
+        isSearching = false
+        let sortedTeams = groups.map { $0.sortedTeams }
+        createCellModels(sortedTeams: sortedTeams)
+    }
+    
+     func getNumberOfSections() -> Int {
+        if isSearching {
+            return searchedGroups.count
+        }else {
+            return groups.count
+        }
+    }
+    
+    func getGroupSectionTitles(index:Int) -> String {
+        if isSearching {
+            return searchedGroups[index].name
+
+        }else {
+            return groups[index].name
+        }
+    }
+    
+    func getNumberOfCellsInSection(index:Int) -> Int {
+        if isSearching {
+            return searchedTeam?.count ?? 0
+        }else {
+            return groups[index].sortedTeams.count
+        }
+    }
+    
+    func getTeamCellViewModels(at index: IndexPath) -> TeamCellViewModel {
+        return teamCellViewModel[index.section][index.row]
+    }
+    
     private func processTeamData(teamData:TeamGroupModel){
         groups.append(teamData.groups.a)
         groups.append(teamData.groups.b)
@@ -62,26 +108,10 @@ class TeamListViewModel {
         let sortedTeams = groups.map { $0.sortedTeams }
         createCellModels(sortedTeams: sortedTeams)
     }
-
+    
     private func createCellModels(sortedTeams:[[Team]]) {
         teamCellViewModel =  sortedTeams.map { $0.map{ TeamCellViewModel(nameText: $0.name) } }
      }
-    
-     func getNumberOfSections() -> Int {
-        return groups.count
-    }
-    
-    func getGroupSectionTitles(index:Int) -> String {
-        return groups[index].name
-    }
-    
-    func getNumberOfCellsInSection(index:Int) -> Int {
-        return groups[index].sortedTeams.count
-    }
-    
-    func getTeamCellViewModels(at index: IndexPath) -> TeamCellViewModel {
-        return teamCellViewModel[index.section][index.row]
-    }    
 }
 
 extension TeamListViewModel {
