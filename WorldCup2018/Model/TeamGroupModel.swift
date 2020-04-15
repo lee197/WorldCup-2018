@@ -19,7 +19,7 @@ struct Groups: Codable {
 struct Group: Codable {
     let name: String
     let winner, runnerup: Int
-    private let teams: [Team]
+    var teams: [Team]
     var sortedTeams: [Team] { return teams.sorted{ $0.name < $1.name }}
 }
 

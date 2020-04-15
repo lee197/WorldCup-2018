@@ -11,6 +11,7 @@ import Foundation
 enum UserAlertError:  String, Error {
     case userError = "Please make sure your network is working fine or re-launch the app"
     case serverError = "Please wait a while and re-launch the app"
+    case searchError = "No result"
 }
 
 class TeamListViewModel {
@@ -18,9 +19,9 @@ class TeamListViewModel {
     var reloadTableViewClosure: (()->())?
     var showAlertClosure: (()->())?
     var groups: [Group] = []
-    var searchedGroups: [Group] = []
+    var searchedGroup: Group?
     var isSearching = false
-    var searchedTeam: [[Team]]?
+    var searchedTeam: Team?
 
     var alertMessage: String? {
         didSet {
@@ -56,9 +57,18 @@ class TeamListViewModel {
     func getSearchTeam(searchTerm: String) {
         isSearching = true
 
-        searchedGroups = groups.filter{$0.sortedTeams.map{$0.name}.contains(searchTerm)}
-        searchedTeam = groups.map{$0.sortedTeams.filter{$0.name == searchTerm}}.filter{$0.count != 0}
-        createCellModels(sortedTeams: searchedTeam!)
+        let searchedGroups = groups.filter{$0.sortedTeams.map{$0.name}.contains(searchTerm)}
+        if searchedGroups.count != 0 {
+            self.searchedGroup = searchedGroups[0]
+        }
+        
+        let searchedTeams = searchedGroup?.teams.filter{$0.name == searchTerm} ?? []
+        if searchedTeams.count != 0 {
+            self.searchedTeam = searchedTeams[0]
+            createCellModels(sortedTeams: [[searchedTeam!]])
+        }else {
+            alertMessage = UserAlertError.searchError.rawValue
+        }
     }
     
     func cancelSearch() {
@@ -69,7 +79,7 @@ class TeamListViewModel {
     
      func getNumberOfSections() -> Int {
         if isSearching {
-            return searchedGroups.count
+            return 1
         }else {
             return groups.count
         }
@@ -77,7 +87,7 @@ class TeamListViewModel {
     
     func getGroupSectionTitles(index:Int) -> String {
         if isSearching {
-            return searchedGroups[index].name
+            return searchedGroup?.name ?? "search result: "
 
         }else {
             return groups[index].name
@@ -86,7 +96,7 @@ class TeamListViewModel {
     
     func getNumberOfCellsInSection(index:Int) -> Int {
         if isSearching {
-            return searchedTeam?.count ?? 0
+            return 1
         }else {
             return groups[index].sortedTeams.count
         }
@@ -117,13 +127,21 @@ class TeamListViewModel {
 extension TeamListViewModel {
     
     func userPressedCell(at index: IndexPath) -> TeamDetailModel {
-        let teamGroup = groups[index.section]
-        let team = teamGroup.sortedTeams[index.row]
-        let teamDetailModel = TeamDetailModel(name: team.name,
-                                              flagImageURL: team.flag,
-                                              groupName: teamGroup.name,
-                                              isWinner: teamGroup.winner == team.id,
-                                              isRunnerup: teamGroup.runnerup == team.id)
+        var teamGroup: Group?
+        var team: Team?
+        if isSearching {
+            teamGroup = searchedGroup
+            team = self.searchedTeam
+        }else {
+            teamGroup = groups[index.section]
+            team = teamGroup?.sortedTeams[index.row]
+        }
+        
+        let teamDetailModel = TeamDetailModel(name: team?.name ?? "UNKNOW",
+                                              flagImageURL: team?.flag ?? "UNKNOW",
+                                              groupName: teamGroup?.name ?? "UNKNOW",
+                                              isWinner: teamGroup?.winner == team?.id,
+                                              isRunnerup: teamGroup?.runnerup == team?.id )
        return teamDetailModel
     }
 }

@@ -142,7 +142,6 @@ extension TeamListViewController: UISearchBarDelegate {
         searchBar.text = nil
         searchBar.resignFirstResponder()
         teamViewModel.cancelSearch()
-        tableView.reloadData()
     }
 }
 
