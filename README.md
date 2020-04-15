@@ -23,4 +23,4 @@ The project is not using any cocoapods for managing external libraries.
 
 ## Next step:
 
-* Fix the bugs of image self-sizing
+* Fix the bug of image self-sizing
