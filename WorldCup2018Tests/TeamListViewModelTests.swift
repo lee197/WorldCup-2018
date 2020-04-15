@@ -9,14 +9,14 @@
 import XCTest
 @testable import WorldCup2018
 
-class WorldCup2018Tests: XCTestCase {
+class TeamListViewModelTests: XCTestCase {
     
-    var sut: TeamViewModel!
+    var sut: TeamListViewModel!
     var mockService: MockDataSourceService!
     
     override func setUp() {
         mockService = MockDataSourceService()
-        sut = TeamViewModel(apiClient: mockService)
+        sut = TeamListViewModel(apiClient: mockService)
     }
     
     override func tearDown() {
@@ -80,17 +80,16 @@ class WorldCup2018Tests: XCTestCase {
     
     func testUserPressCell(){
         fetchFinished()
-        let secondRowInFirstSection = (sectionIndex: 0 , rowIndex: 1)
-        let teamDetail = sut.userPressedCell(at: secondRowInFirstSection.sectionIndex,
-                                             and: secondRowInFirstSection.rowIndex)
+        let secondRowInFirstSection = IndexPath(row: 1, section: 0)
+        let teamDetail = sut.userPressedCell(at: secondRowInFirstSection)
         
         XCTAssertEqual(teamDetail.name,
-                       sut.groups[secondRowInFirstSection.sectionIndex].sortedTeams[secondRowInFirstSection.rowIndex].name)
+                       sut.groups[secondRowInFirstSection.section].sortedTeams[secondRowInFirstSection.row].name)
         XCTAssertTrue(teamDetail.isRunnerup)
     }
 }
 
-extension WorldCup2018Tests {
+extension TeamListViewModelTests {
     private func fetchFinished() {
         let teamData = DataGenerator()
         teamData.finishFetchTeamData()

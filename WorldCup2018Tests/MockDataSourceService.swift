@@ -36,8 +36,6 @@ extension MockDataSourceService: DatasourceProtocol {
 class DataGenerator {
     
     var completeTeamData: TeamGroupModel?
-    var chatWithoutStart: TeamGroupModel?
-    var chatWithoutEnd: TeamGroupModel?
     
     func finishFetchTeamData() {
         DatasourceService().getTeamData { [weak self] result in

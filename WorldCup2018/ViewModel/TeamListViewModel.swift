@@ -13,7 +13,7 @@ enum UserAlertError:  String, Error {
     case serverError = "Please wait a while and re-launch the app"
 }
 
-class TeamViewModel {
+class TeamListViewModel {
     private let apiClient: DatasourceProtocol
     var reloadTableViewClosure: (()->())?
     var showAlertClosure: (()->())?
@@ -84,11 +84,11 @@ class TeamViewModel {
     }    
 }
 
-extension TeamViewModel {
+extension TeamListViewModel {
     
-    func userPressedCell(at sectionIndex: Int, and rowIndex: Int) -> TeamDetailModel {
-        let teamGroup = groups[sectionIndex]
-        let team = teamGroup.sortedTeams[rowIndex]
+    func userPressedCell(at index: IndexPath) -> TeamDetailModel {
+        let teamGroup = groups[index.section]
+        let team = teamGroup.sortedTeams[index.row]
         let teamDetailModel = TeamDetailModel(name: team.name,
                                               flagImageURL: team.flag,
                                               groupName: teamGroup.name,
