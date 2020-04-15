@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39788E002447369A003FF666 /* TeamListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39788DFF2447369A003FF666 /* TeamListCell.swift */; };
+		39A79FE92447421300CD54C1 /* TeamDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A79FE82447421300CD54C1 /* TeamDetailModel.swift */; };
 		39CB2D092447149E001397A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D082447149E001397A4 /* AppDelegate.swift */; };
 		39CB2D0B2447149E001397A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D0A2447149E001397A4 /* SceneDelegate.swift */; };
-		39CB2D0D2447149E001397A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D0C2447149E001397A4 /* ViewController.swift */; };
-		39CB2D102447149E001397A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CB2D0E2447149E001397A4 /* Main.storyboard */; };
+		39CB2D0D2447149E001397A4 /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D0C2447149E001397A4 /* TeamListViewController.swift */; };
 		39CB2D12244714A0001397A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39CB2D11244714A0001397A4 /* Assets.xcassets */; };
 		39CB2D15244714A0001397A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CB2D13244714A0001397A4 /* LaunchScreen.storyboard */; };
 		39CB2D20244714A0001397A4 /* WorldCup2018Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D1F244714A0001397A4 /* WorldCup2018Tests.swift */; };
+		39CB2D2B24471CD8001397A4 /* TeamGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D2A24471CD8001397A4 /* TeamGroupModel.swift */; };
+		39CB2D2D24471D7E001397A4 /* DatasourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D2C24471D7E001397A4 /* DatasourceService.swift */; };
+		39CB2D2F24471DC8001397A4 /* WorldCup2018.json in Resources */ = {isa = PBXBuildFile; fileRef = 39CB2D2E24471DC8001397A4 /* WorldCup2018.json */; };
+		39CB2D3124471E38001397A4 /* MockDataSourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D3024471E38001397A4 /* MockDataSourceService.swift */; };
+		39CB2D3324471F3A001397A4 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CB2D3224471F3A001397A4 /* TeamViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +33,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39788DFF2447369A003FF666 /* TeamListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCell.swift; sourceTree = "<group>"; };
+		39A79FE82447421300CD54C1 /* TeamDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailModel.swift; sourceTree = "<group>"; };
 		39CB2D052447149E001397A4 /* WorldCup2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldCup2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CB2D082447149E001397A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39CB2D0A2447149E001397A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		39CB2D0C2447149E001397A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		39CB2D0F2447149E001397A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39CB2D0C2447149E001397A4 /* TeamListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
 		39CB2D11244714A0001397A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39CB2D14244714A0001397A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39CB2D16244714A0001397A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39CB2D1B244714A0001397A4 /* WorldCup2018Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldCup2018Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CB2D1F244714A0001397A4 /* WorldCup2018Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCup2018Tests.swift; sourceTree = "<group>"; };
 		39CB2D21244714A0001397A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39CB2D2A24471CD8001397A4 /* TeamGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamGroupModel.swift; sourceTree = "<group>"; };
+		39CB2D2C24471D7E001397A4 /* DatasourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasourceService.swift; sourceTree = "<group>"; };
+		39CB2D2E24471DC8001397A4 /* WorldCup2018.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WorldCup2018.json; sourceTree = "<group>"; };
+		39CB2D3024471E38001397A4 /* MockDataSourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSourceService.swift; sourceTree = "<group>"; };
+		39CB2D3224471F3A001397A4 /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +93,13 @@
 			children = (
 				39CB2D082447149E001397A4 /* AppDelegate.swift */,
 				39CB2D0A2447149E001397A4 /* SceneDelegate.swift */,
-				39CB2D0C2447149E001397A4 /* ViewController.swift */,
-				39CB2D0E2447149E001397A4 /* Main.storyboard */,
+				39CB2D0C2447149E001397A4 /* TeamListViewController.swift */,
+				39788DFF2447369A003FF666 /* TeamListCell.swift */,
+				39CB2D3224471F3A001397A4 /* TeamViewModel.swift */,
+				39CB2D2A24471CD8001397A4 /* TeamGroupModel.swift */,
+				39A79FE82447421300CD54C1 /* TeamDetailModel.swift */,
+				39CB2D2C24471D7E001397A4 /* DatasourceService.swift */,
+				39CB2D2E24471DC8001397A4 /* WorldCup2018.json */,
 				39CB2D11244714A0001397A4 /* Assets.xcassets */,
 				39CB2D13244714A0001397A4 /* LaunchScreen.storyboard */,
 				39CB2D16244714A0001397A4 /* Info.plist */,
@@ -93,6 +110,7 @@
 		39CB2D1E244714A0001397A4 /* WorldCup2018Tests */ = {
 			isa = PBXGroup;
 			children = (
+				39CB2D3024471E38001397A4 /* MockDataSourceService.swift */,
 				39CB2D1F244714A0001397A4 /* WorldCup2018Tests.swift */,
 				39CB2D21244714A0001397A4 /* Info.plist */,
 			);
@@ -180,9 +198,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CB2D2F24471DC8001397A4 /* WorldCup2018.json in Resources */,
 				39CB2D15244714A0001397A4 /* LaunchScreen.storyboard in Resources */,
 				39CB2D12244714A0001397A4 /* Assets.xcassets in Resources */,
-				39CB2D102447149E001397A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +218,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39CB2D0D2447149E001397A4 /* ViewController.swift in Sources */,
+				39CB2D0D2447149E001397A4 /* TeamListViewController.swift in Sources */,
 				39CB2D092447149E001397A4 /* AppDelegate.swift in Sources */,
+				39788E002447369A003FF666 /* TeamListCell.swift in Sources */,
+				39A79FE92447421300CD54C1 /* TeamDetailModel.swift in Sources */,
+				39CB2D2D24471D7E001397A4 /* DatasourceService.swift in Sources */,
+				39CB2D2B24471CD8001397A4 /* TeamGroupModel.swift in Sources */,
 				39CB2D0B2447149E001397A4 /* SceneDelegate.swift in Sources */,
+				39CB2D3324471F3A001397A4 /* TeamViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CB2D3124471E38001397A4 /* MockDataSourceService.swift in Sources */,
 				39CB2D20244714A0001397A4 /* WorldCup2018Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,14 +249,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		39CB2D0E2447149E001397A4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				39CB2D0F2447149E001397A4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		39CB2D13244714A0001397A4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
