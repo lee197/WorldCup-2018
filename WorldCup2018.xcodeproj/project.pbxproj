@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		395078E924477A0800D1AE1B /* TeamDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395078E824477A0800D1AE1B /* TeamDetailViewModelTests.swift */; };
+		395078EB244A13C300D1AE1B /* ScaleAspectFitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395078EA244A13C300D1AE1B /* ScaleAspectFitImageView.swift */; };
 		39788E002447369A003FF666 /* TeamListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39788DFF2447369A003FF666 /* TeamListCell.swift */; };
 		39A79FE92447421300CD54C1 /* TeamDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A79FE82447421300CD54C1 /* TeamDetailModel.swift */; };
 		39A79FEB24474D0F00CD54C1 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A79FEA24474D0F00CD54C1 /* TeamDetailViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		395078E824477A0800D1AE1B /* TeamDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewModelTests.swift; sourceTree = "<group>"; };
+		395078EA244A13C300D1AE1B /* ScaleAspectFitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAspectFitImageView.swift; sourceTree = "<group>"; };
 		39788DFF2447369A003FF666 /* TeamListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCell.swift; sourceTree = "<group>"; };
 		39A79FE82447421300CD54C1 /* TeamDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailModel.swift; sourceTree = "<group>"; };
 		39A79FEA24474D0F00CD54C1 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				39788DFF2447369A003FF666 /* TeamListCell.swift */,
 				39A79FF524475B7400CD54C1 /* TeamFlagImageCell.swift */,
 				39A79FF724475B8200CD54C1 /* TeamDetailCell.swift */,
+				395078EA244A13C300D1AE1B /* ScaleAspectFitImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				39CB2D0D2447149E001397A4 /* TeamListViewController.swift in Sources */,
 				39A79FEB24474D0F00CD54C1 /* TeamDetailViewController.swift in Sources */,
+				395078EB244A13C300D1AE1B /* ScaleAspectFitImageView.swift in Sources */,
 				39CB2D092447149E001397A4 /* AppDelegate.swift in Sources */,
 				39788E002447369A003FF666 /* TeamListCell.swift in Sources */,
 				39A79FED24474D5F00CD54C1 /* TeamDetailViewModel.swift in Sources */,
