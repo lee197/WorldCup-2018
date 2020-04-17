@@ -23,6 +23,5 @@ The project is not using any cocoapods for managing external libraries.
 
 ## Next step:
 
-* Fix the bug of image self-sizing
 * Optimize the searching functions in ViewModel
 * create unit test to cover searching functions
