@@ -55,7 +55,6 @@ class TeamDetailViewController: UIViewController {
            ])
         return detailView
     }
-    
 }
 
 extension TeamDetailViewController: UITableViewDataSource {
@@ -72,7 +71,6 @@ extension TeamDetailViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! TeamDetailCell
             cell.teamDetailCellViewModel = teamDetailViewModel.getDetailCellModels(index:indexPath.row - 1)
             return cell
-
         }
     }
 }

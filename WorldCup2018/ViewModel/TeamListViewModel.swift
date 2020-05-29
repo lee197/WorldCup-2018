@@ -34,7 +34,6 @@ class TeamListViewModel {
         }
     }
     
-    
     init(apiClient: DatasourceProtocol = DatasourceService()) {
         self.apiClient = apiClient
     }
@@ -57,12 +56,12 @@ class TeamListViewModel {
     func getSearchTeam(searchTerm: String) {
         isSearching = true
 
-        let searchedGroups = groups.filter{$0.sortedTeams.map{$0.name}.contains(searchTerm)}
+        let searchedGroups = groups.filter{ $0.sortedTeams.map{ $0.name }.contains(searchTerm) }
         if searchedGroups.count != 0 {
             self.searchedGroup = searchedGroups[0]
         }
         
-        let searchedTeams = searchedGroup?.teams.filter{$0.name == searchTerm} ?? []
+        let searchedTeams = searchedGroup?.teams.filter{ $0.name == searchTerm } ?? []
         if searchedTeams.count != 0 {
             self.searchedTeam = searchedTeams[0]
             createCellModels(sortedTeams: [[searchedTeam!]])
@@ -88,7 +87,6 @@ class TeamListViewModel {
     func getGroupSectionTitles(index:Int) -> String {
         if isSearching {
             return searchedGroup?.name ?? "search result: "
-
         }else {
             return groups[index].name
         }
@@ -125,7 +123,6 @@ class TeamListViewModel {
 }
 
 extension TeamListViewModel {
-    
     func userPressedCell(at index: IndexPath) -> TeamDetailModel {
         var teamGroup: Group?
         var team: Team?

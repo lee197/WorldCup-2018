@@ -87,6 +87,8 @@ class TeamListViewModelTests: XCTestCase {
                        sut.groups[secondRowInFirstSection.section].sortedTeams[secondRowInFirstSection.row].name)
         XCTAssertTrue(teamDetail.isRunnerup)
     }
+    
+    func 
 }
 
 extension TeamListViewModelTests {

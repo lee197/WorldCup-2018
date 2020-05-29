@@ -26,11 +26,10 @@ class TeamListViewController: UIViewController {
             self.view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
             self.view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
         ])
-        tableView.backgroundColor = UIColor(named: "theme")
         self.tableView = tableView
     }
     
-    lazy var searchBar:UISearchBar = UISearchBar()
+    lazy var searchBar = SearchView()
     var searchActive : Bool = false
     var filtered:[String] = []
     
@@ -39,23 +38,13 @@ class TeamListViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupTableView()
         initViewModel()
-        self.navigationItem.title = "World Cup 2018"
         setUpSearchBar()
+        self.navigationItem.title = "World Cup 2018"
     }
     
     private func setUpSearchBar() {
-        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 60))
-        searchBar.searchBarStyle = UISearchBar.Style.prominent
-        searchBar.placeholder = " Search..."
-        searchBar.sizeToFit()
-        searchBar.isTranslucent = false
-        searchBar.backgroundImage = UIImage()
+        searchBar = SearchView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 60))
         searchBar.delegate = self
-        searchBar.tintColor = .white
-        searchBar.barTintColor = UIColor(named: "theme")
-        searchBar.searchTextField.textColor = .white
-        searchBar.showsCancelButton = true
-        
         self.view.addSubview(searchBar)
     }
     
